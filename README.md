@@ -68,5 +68,5 @@ exit 0
 
 exit nano and reboot pi!
 
-Reagrds.	
+Regards.	
 
