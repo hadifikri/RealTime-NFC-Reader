@@ -4,12 +4,19 @@ Two program exists for this simple demo:
 1) NFC explore daemon
 
 Requirements:
-	1) wiringPi  : sudo apt-get install wiringPi
-	2) libjason0 : sudo apt-get install libjson0 libjson0-dev
+	1) wiringPi  : installed by default on raspbian
+	2) libjason
+		* git clone https://github.com/json-c/json-c.git
+		* cd json-c
+		* ./autogen.sh
+		* ./configure
+		* make
+		* sudo make install
+		* sudo nano /etc/ld.so.conf
+			add the following line: /etc/local/lib
+			ctrl+x to exit
+		* sudo ldconfig
 
-Pre-compiled Binary:
-	In "*/nfc/build" directory run "sudo ./nfc"
-	
 Build from source:
 	1) cd to "*/nfc/build" directory
 	2) cmake ../source
@@ -65,6 +72,7 @@ fi
 sudo nfc &
 su pi -c 'sudo node ~/nfc/server/nfcserver.js < /dev/null  &'
 exit 0
+
 
 exit nano and reboot pi!
 
